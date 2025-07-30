@@ -1,0 +1,194 @@
+@import url('./styles/colors.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles with OKLCH colors */
+@layer base {
+  * {
+    @apply border-[color:var(--neutral-300)];
+  }
+  
+  body {
+    @apply bg-[color:var(--neutral-0)] text-[color:var(--neutral-800)] antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[color:var(--neutral-900)] font-bold;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  /* OKLCH Background utilities */
+  .bg-primary { background-color: var(--primary-400); }
+  .bg-primary-light { background-color: var(--primary-200); }
+  .bg-primary-dark { background-color: var(--primary-600); }
+  .bg-secondary { background-color: var(--secondary-400); }
+  .bg-accent { background-color: var(--accent-400); }
+  
+  /* OKLCH Text utilities */
+  .text-primary { color: var(--primary-600); }
+  .text-primary-light { color: var(--primary-400); }
+  .text-primary-dark { color: var(--primary-700); }
+  .text-secondary { color: var(--secondary-600); }
+  .text-accent { color: var(--accent-600); }
+  
+  /* OKLCH Border utilities */
+  .border-primary { border-color: var(--primary-400); }
+  .border-secondary { border-color: var(--secondary-400); }
+  .border-accent { border-color: var(--accent-400); }
+  
+  /* OKLCH Gradient utilities */
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-secondary { background: var(--gradient-secondary); }
+  .gradient-accent { background: var(--gradient-accent); }
+  .gradient-warm { background: var(--gradient-warm); }
+  .gradient-cool { background: var(--gradient-cool); }
+  .gradient-sunset { background: var(--gradient-sunset); }
+  
+  /* Enhanced shadows with OKLCH */
+  .shadow-primary { 
+    box-shadow: 0 4px 6px -1px oklch(75% 0.15 85 / 0.1), 0 2px 4px -1px oklch(75% 0.15 85 / 0.06); 
+  }
+  .shadow-secondary { 
+    box-shadow: 0 4px 6px -1px oklch(70% 0.15 140 / 0.1), 0 2px 4px -1px oklch(70% 0.15 140 / 0.06); 
+  }
+}
+
+/* Animation enhancements */
+@layer utilities {
+  .hover-lift {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #10b981, #f97316);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #059669, #ea580c);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gray-600 {
+    color: #374151;
+  }
+  
+  .text-gray-500 {
+    color: #6b7280;
+  }
+  
+  .bg-gray-50 {
+    background-color: #f9fafb;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

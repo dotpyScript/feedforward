@@ -1,0 +1,139 @@
+/* OKLCH Color System for FeedForward */
+/* Perceptually uniform colors for better UX and accessibility */
+
+:root {
+  /* Primary Brand Colors - Golden Yellow Theme */
+  --primary-50: oklch(97% 0.02 85);   /* Very light golden */
+  --primary-100: oklch(94% 0.04 85);  /* Light golden */
+  --primary-200: oklch(89% 0.08 85);  /* Soft golden */
+  --primary-300: oklch(82% 0.12 85);  /* Medium golden */
+  --primary-400: oklch(75% 0.15 85);  /* Base golden (#ffc042 equivalent) */
+  --primary-500: oklch(68% 0.18 85);  /* Rich golden */
+  --primary-600: oklch(61% 0.16 82);  /* Deep golden */
+  --primary-700: oklch(54% 0.14 80);  /* Darker golden */
+  --primary-800: oklch(47% 0.12 78);  /* Dark golden */
+  --primary-900: oklch(40% 0.10 75);  /* Very dark golden */
+
+  /* Secondary Colors - Green (for food/nature theme) */
+  --secondary-50: oklch(96% 0.02 140);   /* Very light green */
+  --secondary-100: oklch(92% 0.04 140);  /* Light green */
+  --secondary-200: oklch(86% 0.08 140);  /* Soft green */
+  --secondary-300: oklch(78% 0.12 140);  /* Medium green */
+  --secondary-400: oklch(70% 0.15 140);  /* Base green */
+  --secondary-500: oklch(62% 0.18 140);  /* Rich green */
+  --secondary-600: oklch(54% 0.16 142);  /* Deep green */
+  --secondary-700: oklch(46% 0.14 144);  /* Darker green */
+  --secondary-800: oklch(38% 0.12 146);  /* Dark green */
+  --secondary-900: oklch(30% 0.10 148);  /* Very dark green */
+
+  /* Accent Colors - Orange (for warmth/energy) */
+  --accent-50: oklch(96% 0.02 65);    /* Very light orange */
+  --accent-100: oklch(92% 0.04 65);   /* Light orange */
+  --accent-200: oklch(86% 0.08 65);   /* Soft orange */
+  --accent-300: oklch(78% 0.12 65);   /* Medium orange */
+  --accent-400: oklch(70% 0.15 65);   /* Base orange */
+  --accent-500: oklch(62% 0.18 65);   /* Rich orange */
+  --accent-600: oklch(54% 0.16 62);   /* Deep orange */
+  --accent-700: oklch(46% 0.14 60);   /* Darker orange */
+  --accent-800: oklch(38% 0.12 58);   /* Dark orange */
+  --accent-900: oklch(30% 0.10 55);   /* Very dark orange */
+
+  /* Neutral Colors - For text and backgrounds */
+  --neutral-0: oklch(100% 0 0);       /* Pure white */
+  --neutral-50: oklch(98% 0.01 0);    /* Off white */
+  --neutral-100: oklch(96% 0.01 0);   /* Very light gray */
+  --neutral-200: oklch(92% 0.01 0);   /* Light gray */
+  --neutral-300: oklch(86% 0.01 0);   /* Soft gray */
+  --neutral-400: oklch(74% 0.01 0);   /* Medium gray */
+  --neutral-500: oklch(62% 0.01 0);   /* Base gray */
+  --neutral-600: oklch(50% 0.01 0);   /* Deep gray */
+  --neutral-700: oklch(38% 0.01 0);   /* Dark gray */
+  --neutral-800: oklch(26% 0.01 0);   /* Very dark gray */
+  --neutral-900: oklch(16% 0.01 0);   /* Near black */
+  --neutral-950: oklch(10% 0.01 0);   /* Almost black */
+
+  /* Semantic Colors */
+  --success-50: oklch(96% 0.02 145);   /* Very light success */
+  --success-400: oklch(72% 0.15 145);  /* Medium success */
+  --success-500: oklch(64% 0.18 145);  /* Base success */
+  --success-600: oklch(56% 0.16 147);  /* Deep success */
+
+  --warning-50: oklch(96% 0.02 75);    /* Very light warning */
+  --warning-400: oklch(78% 0.15 75);   /* Medium warning */
+  --warning-500: oklch(70% 0.18 75);   /* Base warning */
+  --warning-600: oklch(62% 0.16 72);   /* Deep warning */
+
+  --error-50: oklch(96% 0.02 25);      /* Very light error */
+  --error-400: oklch(72% 0.15 25);     /* Medium error */
+  --error-500: oklch(64% 0.18 25);     /* Base error */
+  --error-600: oklch(56% 0.16 22);     /* Deep error */
+
+  --info-50: oklch(96% 0.02 230);      /* Very light info */
+  --info-400: oklch(72% 0.15 230);     /* Medium info */
+  --info-500: oklch(64% 0.18 230);     /* Base info */
+  --info-600: oklch(56% 0.16 227);     /* Deep info */
+
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
+  --gradient-accent: linear-gradient(135deg, var(--accent-400), var(--accent-600));
+  --gradient-warm: linear-gradient(135deg, var(--primary-400), var(--accent-500));
+  --gradient-cool: linear-gradient(135deg, var(--secondary-400), var(--info-500));
+  --gradient-sunset: linear-gradient(135deg, var(--primary-400), var(--accent-400), var(--accent-600));
+
+  /* Shadow Definitions */
+  --shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px oklch(0% 0 0 / 0.1), 0 2px 4px -1px oklch(0% 0 0 / 0.06);
+  --shadow-lg: 0 10px 15px -3px oklch(0% 0 0 / 0.1), 0 4px 6px -2px oklch(0% 0 0 / 0.05);
+  --shadow-xl: 0 20px 25px -5px oklch(0% 0 0 / 0.1), 0 10px 10px -5px oklch(0% 0 0 / 0.04);
+  --shadow-2xl: 0 25px 50px -12px oklch(0% 0 0 / 0.25);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  /* Spacing Scale */
+  --space-px: 1px;
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --neutral-0: oklch(10% 0.01 0);
+    --neutral-50: oklch(16% 0.01 0);
+    --neutral-100: oklch(22% 0.01 0);
+    --neutral-900: oklch(94% 0.01 0);
+    --neutral-950: oklch(98% 0.01 0);
+  }
+}
+
+/* Utility classes for quick application */
+.bg-primary { background-color: var(--primary-400); }
+.bg-primary-light { background-color: var(--primary-200); }
+.bg-primary-dark { background-color: var(--primary-600); }
+
+.text-primary { color: var(--primary-400); }
+.text-primary-dark { color: var(--primary-600); }
+
+.border-primary { border-color: var(--primary-400); }
+
+.gradient-primary { background: var(--gradient-primary); }
+.gradient-warm { background: var(--gradient-warm); }
+.gradient-sunset { background: var(--gradient-sunset); } 
