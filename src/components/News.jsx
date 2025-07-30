@@ -62,18 +62,32 @@ const News = () => {
   const featuredArticle = newsArticles[0];
 
   return (
-    <section id="news" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="news" className="py-20 bg-gradient-to-br from-green-50 via-white to-orange-50 relative overflow-hidden">
+      {/* Elegant Background Elements */}
+      <div className="absolute inset-0">
+        {/* Gradient orbs */}
+        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-green-200/30 to-green-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-orange-200/30 to-orange-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Mesh gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-orange-50/30"></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:75px_75px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-100/80 to-orange-100/80 border border-green-200/50 text-green-800 text-sm font-medium mb-6 shadow-lg">
+            <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2 animate-pulse"></div>
             Latest News
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Stay Updated with 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-600"> FeedForward</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-orange-600"> FeedForward</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Discover the latest stories, updates, and community highlights from our growing network 
             of food sharers and changemakers.
           </p>
@@ -81,7 +95,7 @@ const News = () => {
 
         {/* Featured Article */}
         <div className="mb-16">
-          <div className="bg-gradient-to-br from-green-50 to-orange-50 rounded-3xl overflow-hidden shadow-xl">
+          <div className="bg-gradient-to-br from-green-50/80 to-orange-50/80 rounded-3xl overflow-hidden shadow-2xl border border-green-200/50">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative">
                 <img 
@@ -89,8 +103,9 @@ const News = () => {
                   alt={featuredArticle.title} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute top-6 left-6">
+                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                     {featuredArticle.category}
                   </span>
                 </div>
@@ -101,7 +116,7 @@ const News = () => {
                   <span>•</span>
                   <span>{featuredArticle.readTime}</span>
                   <span>•</span>
-                  <span>By {featuredArticle.author}</span>
+                  <span>{featuredArticle.author}</span>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
                   {featuredArticle.title}
@@ -109,9 +124,9 @@ const News = () => {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   {featuredArticle.excerpt}
                 </p>
-                <button className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors duration-200">
+                <button className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors duration-200 group">
                   Read Full Article
-                  <ChevronRightIcon className="w-4 h-4 ml-2" />
+                  <ChevronRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
               </div>
             </div>
@@ -119,17 +134,18 @@ const News = () => {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsArticles.slice(1).map((article, index) => (
-            <article key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {newsArticles.slice(1, 7).map((article, index) => (
+            <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-green-200/50">
+              <div className="relative h-48 overflow-hidden">
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
                     {article.category}
                   </span>
                 </div>
@@ -140,46 +156,47 @@ const News = () => {
                   <span>•</span>
                   <span>{article.readTime}</span>
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3 leading-tight">
+                <h4 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
                   {article.title}
                 </h4>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {article.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">By {article.author}</span>
-                  <button className="text-green-600 hover:text-green-700 font-medium text-sm transition-colors duration-200">
-                    Read More →
+                  <span className="text-sm text-gray-500">{article.author}</span>
+                  <button className="text-green-600 hover:text-green-700 font-medium text-sm transition-colors duration-200 group">
+                    Read More
+                    <ChevronRightIcon className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 </div>
               </div>
-            </article>
+            </div>
           ))}
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-green-500 to-orange-500 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
-            <p className="text-lg mb-6 opacity-90">
+        <div className="bg-gradient-to-r from-green-500 to-orange-500 rounded-3xl p-12 text-white shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Connected</h3>
+            <p className="text-xl mb-8 opacity-90">
               Get the latest updates, success stories, and community news delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <input 
                 type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+                placeholder="Enter your email address"
+                className="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <Button 
                 variant="secondary" 
-                size="md"
-                className="bg-white text-gray-900 hover:bg-gray-100 border-0"
+                size="lg"
+                className="bg-white text-gray-900 hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl"
               >
                 Subscribe
               </Button>
             </div>
             <p className="text-sm opacity-75 mt-4">
-              No spam, unsubscribe at any time.
+              No spam, unsubscribe at any time. We respect your privacy.
             </p>
           </div>
         </div>
