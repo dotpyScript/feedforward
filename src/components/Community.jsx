@@ -3,11 +3,13 @@ import {
   BookOpenIcon, 
   ChartBarIcon, 
   ChatBubbleLeftRightIcon,
-  CheckIcon 
+  CheckIcon
 } from '@heroicons/react/24/outline';
 import Button from './Button';
+import Testimonials from './Testimonials';
 
 const Community = () => {
+
   const membershipTypes = [
     {
       title: "Food Seeker",
@@ -73,26 +75,7 @@ const Community = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah M.",
-      role: "Home Cook",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-      quote: "FeedForward helped me turn my passion for cooking into a way to help my community. I've shared over 500 meals and made so many new friends!"
-    },
-    {
-      name: "David L.",
-      role: "Community Member",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-      quote: "As someone who was struggling, FeedForward provided not just food, but hope and a sense of belonging. This community is truly amazing."
-    },
-    {
-      name: "Maria R.",
-      role: "NGO Partner",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-      quote: "Partnering with FeedForward has allowed us to reach more families in need. The platform's efficiency and community focus are unmatched."
-    }
-  ];
+
 
   return (
     <section id="community" className="py-20 bg-gradient-to-br from-green-50 via-white to-orange-50 relative overflow-hidden">
@@ -192,28 +175,8 @@ const Community = () => {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="mb-20">
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">What Our Community Says</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-green-200/50">
-                <div className="flex items-center mb-6">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed italic">"{testimonial.quote}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Testimonials Carousel */}
+        <Testimonials />
 
         {/* Call to Action */}
         <div className="bg-gradient-to-r from-green-500 to-orange-500 rounded-3xl p-12 text-white shadow-2xl">

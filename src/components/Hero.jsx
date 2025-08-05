@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
 import { 
   ArrowRightIcon, 
   ArrowDownTrayIcon, 
@@ -220,9 +221,9 @@ const Hero = () => {
             {/* Enhanced Interactive Stats */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { number: "50K+", label: "Meals", icon: <CakeIcon className="w-6 h-6" />, color: "from-green-500 to-green-700", bg: "from-green-50 to-green-100" },
-                { number: "10K+", label: "Users", icon: <UsersIcon className="w-6 h-6" />, color: "from-orange-500 to-orange-700", bg: "from-orange-50 to-orange-100" },
-                { number: "100+", label: "Cities", icon: <GlobeAltIcon className="w-6 h-6" />, color: "from-green-600 to-orange-600", bg: "from-green-100 to-orange-100" }
+                { number: 50000, displayNumber: "50K+", label: "Meals", icon: <CakeIcon className="w-6 h-6" />, color: "from-green-500 to-green-700", bg: "from-green-50 to-green-100", format: "K" },
+                { number: 10000, displayNumber: "10K+", label: "Users", icon: <UsersIcon className="w-6 h-6" />, color: "from-orange-500 to-orange-700", bg: "from-orange-50 to-orange-100", format: "K" },
+                { number: 100, displayNumber: "100+", label: "Cities", icon: <GlobeAltIcon className="w-6 h-6" />, color: "from-green-600 to-orange-600", bg: "from-green-100 to-orange-100", suffix: "+" }
               ].map((stat, index) => (
                 <div key={index} className="group cursor-pointer">
                   <div className={`bg-gradient-to-br ${stat.bg} backdrop-blur-sm rounded-2xl p-4 border border-green-200/50 hover:border-green-300 hover:shadow-xl transition-all duration-300 hover:scale-105`}>
@@ -231,7 +232,25 @@ const Hero = () => {
                         {stat.icon}
                       </div>
                       <div className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
-                        {stat.number}
+                        {stat.format === "K" ? (
+                          <CountUp
+                            start={0}
+                            end={stat.number / 1000}
+                            duration={2}
+                            suffix="K+"
+                            enableScrollSpy={true}
+                            scrollSpyOnce={true}
+                          />
+                        ) : (
+                          <CountUp
+                            start={0}
+                            end={stat.number}
+                            duration={2}
+                            suffix={stat.suffix}
+                            enableScrollSpy={true}
+                            scrollSpyOnce={true}
+                          />
+                        )}
                       </div>
                       <div className="text-gray-700 text-sm font-medium">{stat.label}</div>
                     </div>

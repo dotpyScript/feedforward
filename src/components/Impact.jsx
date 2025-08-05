@@ -9,33 +9,43 @@ import {
   CakeIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/solid';
+import CountUp from 'react-countup';
 import Button from './Button';
 
 const Impact = () => {
   const stats = [
     {
-      number: "50,000+",
+      number: 50000,
+      displayNumber: "50,000+",
       label: "Meals Shared",
       description: "Free meals distributed to those in need",
-      icon: <CakeIcon className="w-6 h-6 text-green-600" />
+      icon: <CakeIcon className="w-6 h-6 text-green-600" />,
+      suffix: "+"
     },
     {
-      number: "10,000+",
+      number: 10000,
+      displayNumber: "10,000+",
       label: "Active Users",
       description: "Community members making a difference",
-      icon: <UsersIcon className="w-6 h-6 text-orange-600" />
+      icon: <UsersIcon className="w-6 h-6 text-orange-600" />,
+      suffix: "+"
     },
     {
-      number: "100+",
+      number: 100,
+      displayNumber: "100+",
       label: "Cities",
       description: "Communities served across the globe",
-      icon: <GlobeAltIcon className="w-6 h-6 text-green-700" />
+      icon: <GlobeAltIcon className="w-6 h-6 text-green-700" />,
+      suffix: "+"
     },
     {
-      number: "1M+",
+      number: 1000000,
+      displayNumber: "1M+",
       label: "Lives Impacted",
       description: "People who benefited from our platform",
-      icon: <HeartIcon className="w-6 h-6 text-orange-700" />
+      icon: <HeartIcon className="w-6 h-6 text-orange-700" />,
+      suffix: "+",
+      format: "M"
     }
   ];
 
@@ -126,7 +136,28 @@ const Impact = () => {
                 </div>
               </div>
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent mb-2">
-                {stat.number}
+                {stat.format === "M" ? (
+                  <CountUp
+                    start={0}
+                    end={stat.number / 1000000}
+                    duration={2.5}
+                    decimal="."
+                    decimals={1}
+                    suffix="M+"
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                  />
+                ) : (
+                  <CountUp
+                    start={0}
+                    end={stat.number}
+                    duration={2.5}
+                    separator=","
+                    suffix={stat.suffix}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                  />
+                )}
               </div>
               <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
               <div className="text-gray-600 text-sm">{stat.description}</div>

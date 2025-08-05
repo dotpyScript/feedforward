@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import LogoMarquee from './components/LogoMarquee'
 import Impact from './components/Impact'
 import News from './components/News'
 import Community from './components/Community'
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <LogoMarquee />
       <Impact />
       <News />
       <Community />

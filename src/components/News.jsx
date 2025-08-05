@@ -62,7 +62,7 @@ const News = () => {
   const featuredArticle = newsArticles[0];
 
   return (
-    <section id="news" className="py-20 bg-gradient-to-br from-green-50 via-white to-orange-50 relative overflow-hidden">
+    <section id="news" className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-green-50 via-white to-orange-50 relative overflow-hidden">
       {/* Elegant Background Elements */}
       <div className="absolute inset-0">
         {/* Gradient orbs */}
@@ -78,54 +78,54 @@ const News = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-100/80 to-orange-100/80 border border-green-200/50 text-green-800 text-sm font-medium mb-6 shadow-lg">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-to-r from-green-100/80 to-orange-100/80 border border-green-200/50 text-green-800 text-sm font-medium mb-4 sm:mb-6">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2 animate-pulse"></div>
             Latest News
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Stay Updated with 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-orange-600"> FeedForward</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             Discover the latest stories, updates, and community highlights from our growing network 
             of food sharers and changemakers.
           </p>
         </div>
 
         {/* Featured Article */}
-        <div className="mb-16">
-          <div className="bg-gradient-to-br from-green-50/80 to-orange-50/80 rounded-3xl overflow-hidden shadow-2xl border border-green-200/50">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative">
+        <div className="mb-12 md:mb-16">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-green-200/50 transition-all duration-300 hover:border-green-300/70">
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px] lg:min-h-[500px]">
+              <div className="relative order-2 lg:order-1">
                 <img 
                   src={featuredArticle.image} 
                   alt={featuredArticle.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-64 lg:h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute top-6 left-6">
-                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute top-4 sm:top-6 left-4 sm:left-6">
+                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
                     {featuredArticle.category}
                   </span>
                 </div>
               </div>
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+              <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center order-1 lg:order-2">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm text-gray-500 mb-4">
                   <span>{featuredArticle.date}</span>
-                  <span>•</span>
+                  <span className="hidden sm:inline">•</span>
                   <span>{featuredArticle.readTime}</span>
-                  <span>•</span>
-                  <span>{featuredArticle.author}</span>
+                  <span className="hidden sm:inline">•</span>
+                  <span className="text-green-600 font-medium">{featuredArticle.author}</span>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
                   {featuredArticle.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">
                   {featuredArticle.excerpt}
                 </p>
-                <button className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors duration-200 group">
-                  Read Full Article
+                <button className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors duration-200 group self-start">
+                  <span>Read Full Article</span>
                   <ChevronRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
               </div>
@@ -134,68 +134,68 @@ const News = () => {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16">
           {newsArticles.slice(1, 7).map((article, index) => (
-            <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-green-200/50">
-              <div className="relative h-48 overflow-hidden">
+            <article key={index} className="group bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-green-200/50 transition-all duration-300 hover:border-green-300/70 hover:scale-[1.02]">
+              <div className="relative h-48 sm:h-52 overflow-hidden">
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+                  <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                     {article.category}
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-500 mb-3">
                   <span>{article.date}</span>
-                  <span>•</span>
+                  <span className="hidden sm:inline">•</span>
                   <span>{article.readTime}</span>
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-3 leading-tight line-clamp-2">
                   {article.title}
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                   {article.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">{article.author}</span>
-                  <button className="text-green-600 hover:text-green-700 font-medium text-sm transition-colors duration-200 group">
-                    Read More
-                    <ChevronRightIcon className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                  <span className="text-xs sm:text-sm text-green-600 font-medium">{article.author}</span>
+                  <button className="text-green-600 hover:text-green-700 font-medium text-sm transition-colors duration-200 group/btn flex items-center">
+                    <span>Read</span>
+                    <ChevronRightIcon className="w-3 h-3 ml-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
                   </button>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-gradient-to-r from-green-500 to-orange-500 rounded-3xl p-12 text-white shadow-2xl">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Connected</h3>
-            <p className="text-xl mb-8 opacity-90">
+        <div className="bg-gradient-to-r from-green-500 to-orange-500 rounded-2xl md:rounded-3xl p-8 sm:p-12 text-white">
+          <div className="text-center max-w-3xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Stay Connected</h3>
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 leading-relaxed">
               Get the latest updates, success stories, and community news delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg mx-auto">
               <input 
                 type="email" 
                 placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm sm:text-base"
               />
               <Button 
                 variant="secondary" 
-                size="lg"
-                className="bg-white text-gray-900 hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl"
+                size="md"
+                className="bg-white text-gray-900 hover:bg-gray-100 border-0 px-6 sm:px-8 whitespace-nowrap"
               >
                 Subscribe
               </Button>
             </div>
-            <p className="text-sm opacity-75 mt-4">
+            <p className="text-xs sm:text-sm opacity-75 mt-4">
               No spam, unsubscribe at any time. We respect your privacy.
             </p>
           </div>
@@ -205,4 +205,4 @@ const News = () => {
   );
 };
 
-export default News; 
+export default News;
