@@ -88,9 +88,9 @@ const Footer = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 sm:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
             {/* Brand Section */}
-            <div className="lg:col-span-2 sm:col-span-2 mb-8 sm:mb-0">
+            <div className="col-span-2 lg:col-span-2 mb-8 sm:mb-0">
               <div className="flex items-center space-x-3 mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-sm sm:text-base">FF</span>
@@ -116,7 +116,7 @@ const Footer = () => {
             </div>
 
             {/* Product Links */}
-            <div className="mb-6 sm:mb-0">
+            <div className="mb-4 sm:mb-0">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white flex items-center">
                 <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2"></div>
                 Product
@@ -134,7 +134,7 @@ const Footer = () => {
             </div>
 
             {/* Company Links */}
-            <div className="mb-6 sm:mb-0">
+            <div className="mb-4 sm:mb-0">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white flex items-center">
                 <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2"></div>
                 Company
@@ -152,7 +152,7 @@ const Footer = () => {
             </div>
 
             {/* Community Links */}
-            <div className="mb-6 sm:mb-0">
+            <div className="mb-4 sm:mb-0">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white flex items-center">
                 <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2"></div>
                 Community
@@ -170,7 +170,7 @@ const Footer = () => {
             </div>
 
             {/* Support Links */}
-            <div className="mb-6 sm:mb-0">
+            <div className="mb-4 sm:mb-0">
               <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white flex items-center">
                 <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-orange-500 rounded-full mr-2"></div>
                 Support
