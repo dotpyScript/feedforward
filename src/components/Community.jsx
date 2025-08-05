@@ -128,36 +128,43 @@ const Community = () => {
 
         {/* Membership Types */}
         <div className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {membershipTypes.map((type, index) => (
-              <div key={index} className={`relative group ${type.popular ? 'md:scale-105' : ''}`}>
-                {type.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <div className="bg-gradient-to-br from-green-50/80 to-orange-50/80 p-8 rounded-3xl border border-green-200/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-105">
+              <div key={index} className="group relative transform transition-all duration-300 hover:scale-[1.02]">
+                <div className={`h-full bg-white/80 backdrop-blur-sm p-8 rounded-3xl border-2 ${
+                  type.popular 
+                    ? 'border-green-500 bg-gradient-to-br from-green-50/50 to-orange-50/50' 
+                    : 'border-green-200/50'
+                } transition-all duration-300 group-hover:shadow-xl`}>
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">{type.title}</h3>
                     <p className="text-gray-600 mb-6">{type.description}</p>
-                    <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent">
+                    <div className={`text-3xl font-bold mb-2 ${
+                      type.popular 
+                        ? 'bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent' 
+                        : 'text-gray-900'
+                    }`}>
                       {type.price}
                     </div>
                   </div>
                   <ul className="space-y-4 mb-8">
                     {type.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        <CheckIcon className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckIcon className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${
+                          type.popular ? 'text-green-500' : 'text-gray-400'
+                        }`} />
+                        <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button 
                     variant={type.popular ? "gradient" : "outline"}
                     size="lg"
-                    className={`w-full ${type.popular ? 'bg-gradient-to-r from-green-500 to-orange-500 hover:from-green-600 hover:to-orange-600 text-white shadow-lg hover:shadow-xl' : 'border-2 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600'}`}
+                    className={`w-full ${
+                      type.popular 
+                        ? 'bg-gradient-to-r from-green-500 to-orange-500 hover:from-green-600 hover:to-orange-600 text-white' 
+                        : 'border-2 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600'
+                    } transform transition-transform duration-300 hover:-translate-y-1`}
                   >
                     {type.buttonText}
                   </Button>
@@ -239,4 +246,4 @@ const Community = () => {
   );
 };
 
-export default Community; 
+export default Community;

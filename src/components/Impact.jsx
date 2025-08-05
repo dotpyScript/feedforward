@@ -120,8 +120,10 @@ const Impact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
             <div key={index} className="group bg-gradient-to-br from-green-50/80 to-orange-50/80 p-8 rounded-3xl text-center hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-green-200/50 backdrop-blur-sm">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-orange-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                {stat.icon}
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 border-2 border-green-200 group-hover:border-green-300 transition-all duration-300">
+                <div className="w-8 h-8 text-green-600">
+                  {stat.icon}
+                </div>
               </div>
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent mb-2">
                 {stat.number}
@@ -137,7 +139,7 @@ const Impact = () => {
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Success Stories</h3>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {impactStories.map((story, index) => (
-              <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-green-200/50">
+              <div key={index} className="group bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 border border-green-200/50">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={story.image} 
