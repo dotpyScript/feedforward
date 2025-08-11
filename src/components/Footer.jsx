@@ -4,6 +4,7 @@ import {
   UsersIcon, 
   LinkIcon 
 } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
       { name: "Mobile App", href: "#" }
     ],
     company: [
-      { name: "About Us", href: "#about" },
+      { name: "About Us", href: "/about", type: "route" },
       { name: "Our Mission", href: "#" },
       { name: "Careers", href: "#" },
       { name: "Press", href: "#" }
@@ -142,10 +143,17 @@ const Footer = () => {
               <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-gray-400 hover:text-white transition-all duration-200 hover:translate-x-1 transform text-sm sm:text-base group flex items-center">
-                      <span className="w-1 h-1 bg-gray-600 rounded-full mr-2 group-hover:bg-green-500 transition-colors duration-200"></span>
+                    {link.type === 'route' ? (
+                      <Link to={link.href} className="text-gray-400 hover:text-white transition-all duration-200 hover:translate-x-1 transform text-sm sm:text-base group flex items-center">
+                        <span className="w-1 h-1 bg-gray-600 rounded-full mr-2 group-hover:bg-green-500 transition-colors duration-200"></span>
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className="text-gray-400 hover:text-white transition-all duration-200 hover:translate-x-1 transform text-sm sm:text-base group flex items-center">
+                        <span className="w-1 h-1 bg-gray-600 rounded-full mr-2 group-hover:bg-green-500 transition-colors duration-200"></span>
                       {link.name}
                     </a>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CountUp from 'react-countup';
 import { 
   EnvelopeIcon, 
   PhoneIcon,
@@ -9,11 +10,6 @@ import {
   UsersIcon,
   TrophyIcon
 } from '@heroicons/react/24/outline';
-import {
-  LinkedInIcon,
-  TwitterIcon,
-  GitHubIcon
-} from '@heroicons/react/24/solid';
 
 const Team = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -343,21 +339,54 @@ const Team = () => {
             </div>
             
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-2">{teamMembers.length}</div>
-                <div className="text-green-100">Team Members</div>
+              <div className="text-center transform hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl sm:text-4xl font-bold mb-2 bg-white/10 rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <CountUp 
+                    end={teamMembers.length} 
+                    duration={2.5}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                    delay={0.2}
+                  />
+                </div>
+                <div className="text-green-100 font-medium">Team Members</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-2">{departments.length - 1}</div>
-                <div className="text-green-100">Departments</div>
+              <div className="text-center transform hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl sm:text-4xl font-bold mb-2 bg-white/10 rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <CountUp 
+                    end={departments.length - 1} 
+                    duration={2.5}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                    delay={0.4}
+                  />
+                </div>
+                <div className="text-green-100 font-medium">Departments</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-2">6</div>
-                <div className="text-green-100">Countries</div>
+              <div className="text-center transform hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl sm:text-4xl font-bold mb-2 bg-white/10 rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <CountUp 
+                    end={6} 
+                    duration={2.5}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                    delay={0.6}
+                  />
+                </div>
+                <div className="text-green-100 font-medium">Countries</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-2">50+</div>
-                <div className="text-green-100">Years Combined</div>
+              <div className="text-center transform hover:scale-105 transition-transform duration-300">
+                <div className="text-3xl sm:text-4xl font-bold mb-2 bg-white/10 rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <CountUp 
+                    end={50} 
+                    suffix="+"
+                    duration={2.5}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                    delay={0.8}
+                  />
+                </div>
+                <div className="text-green-100 font-medium">Years Combined</div>
               </div>
             </div>
           </div>

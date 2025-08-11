@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   // Handle scroll effect
   useEffect(() => {
@@ -29,34 +31,53 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <div className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-3 group">
               <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-orange-500 rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:scale-105 shadow-lg">
                 <span className="text-white font-bold text-lg">FF</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 FeedForward
               </span>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-1">
               {[
-                { name: 'Home', href: '#home' },
-                { name: 'About', href: '#about' },
-                { name: 'Impact', href: '#impact' },
-                { name: 'News', href: '#news' },
-                { name: 'Community', href: '#community' }
+                { name: 'Home', href: '/', type: 'route' },
+                { name: 'About', href: '/about', type: 'route' },
+                { name: 'News', href: '/news', type: 'route' },
+                { name: 'Impact', href: '#impact', type: 'anchor' },
+                { name: 'Community', href: '#community', type: 'anchor' }
               ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="relative px-5 py-2 text-sm font-medium text-gray-700 hover:text-green-600 transition-colors duration-200 rounded-lg hover:bg-green-50/50 group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-orange-500 transition-all duration-200 group-hover:w-full"></span>
-                </a>
+                item.type === 'route' ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`relative px-5 py-2 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-green-50/50 group ${
+                      location.pathname === item.href 
+                        ? 'text-green-600' 
+                        : 'text-gray-700 hover:text-green-600'
+                    }`}
+                  >
+                    {item.name}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-500 to-orange-500 transition-all duration-200 ${
+                      location.pathname === item.href 
+                        ? 'w-full' 
+                        : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="relative px-5 py-2 text-sm font-medium text-gray-700 hover:text-green-600 transition-colors duration-200 rounded-lg hover:bg-green-50/50 group"
+                  >
+                    {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-orange-500 transition-all duration-200 group-hover:w-full"></span>
+                  </a>
+                )
               ))}
             </div>
           </div>
@@ -104,20 +125,35 @@ const Navbar = () => {
         <div className="absolute w-full bg-white/80 backdrop-blur-lg border-t border-gray-200 shadow-lg">
           <div className="px-4 pt-4 pb-6 space-y-3">
             {[
-              { name: 'Home', href: '#home' },
-              { name: 'About', href: '#about' },
-              { name: 'Impact', href: '#impact' },
-              { name: 'News', href: '#news' },
-              { name: 'Community', href: '#community' }
+              { name: 'Home', href: '/', type: 'route' },
+              { name: 'About', href: '/about', type: 'route' },
+              { name: 'News', href: '/news', type: 'route' },
+              { name: 'Impact', href: '#impact', type: 'anchor' },
+              { name: 'Community', href: '#community', type: 'anchor' }
             ].map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-green-600 rounded-lg hover:bg-green-50/50 transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.type === 'route' ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`block px-4 py-3 text-base font-medium rounded-lg hover:bg-green-50/50 transition-all duration-200 ${
+                    location.pathname === item.href 
+                      ? 'text-green-600 bg-green-50/50' 
+                      : 'text-gray-700 hover:text-green-600'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-green-600 rounded-lg hover:bg-green-50/50 transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )
             ))}
             <div className="pt-4 border-t border-gray-200 space-y-3">
               <Button 
