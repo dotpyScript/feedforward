@@ -3,7 +3,7 @@ import {
   BookOpenIcon, 
   ChartBarIcon, 
   ChatBubbleLeftRightIcon,
-  CheckIcon
+  CheckIcon 
 } from '@heroicons/react/24/outline';
 import Button from './Button';
 import Testimonials from './Testimonials';
@@ -121,13 +121,13 @@ const Community = () => {
                 } transition-all duration-300 group-hover:shadow-xl`}>
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">{type.title}</h3>
-                    <p className="text-gray-600 mb-6">{type.description}</p>
+                  <p className="text-gray-600 mb-6">{type.description}</p>
                     <div className={`text-3xl font-bold mb-2 ${
                       type.popular 
                         ? 'bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent' 
                         : 'text-gray-900'
                     }`}>
-                      {type.price}
+                    {type.price}
                     </div>
                   </div>
                   <ul className="space-y-4 mb-8">
@@ -165,7 +165,7 @@ const Community = () => {
               <div key={index} className="group text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-green-200/50 hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <div className="w-16 h-16 bg-gradient-to-r from-green-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-green-200 group-hover:to-orange-200 transition-all duration-300">
                   <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-orange-500 rounded-lg flex items-center justify-center text-white">
-                    {feature.icon}
+                  {feature.icon}
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-gray-900 mb-3">{feature.title}</h4>
@@ -209,4 +209,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default Community; 

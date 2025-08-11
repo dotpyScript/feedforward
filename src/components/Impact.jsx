@@ -180,7 +180,7 @@ const Impact = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
                     <span className="bg-gradient-to-r from-green-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                      {story.meals}
+                    {story.meals}
                     </span>
                   </div>
                 </div>
@@ -232,13 +232,13 @@ const Impact = () => {
               >
                 Start Sharing
               </Button>
-              <Button 
+            <Button 
                 variant="outline" 
-                size="lg"
+              size="lg" 
                 className="border-2 border-white text-white hover:bg-white hover:text-gray-900"
-              >
+            >
                 Learn More
-              </Button>
+            </Button>
             </div>
           </div>
         </div>

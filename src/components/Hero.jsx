@@ -211,7 +211,7 @@ const Hero = () => {
               ].map((feature, index) => (
                 <div key={index} className={`flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r ${feature.bg} border border-green-200/50 shadow-sm hover:shadow-md transition-all duration-300`}>
                   <div className="p-2 bg-white rounded-lg shadow-sm">
-                    {feature.icon}
+                  {feature.icon}
                   </div>
                   <span className="text-base font-medium text-gray-800">{feature.text}</span>
                 </div>
@@ -379,7 +379,7 @@ const Hero = () => {
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-3 text-gray-600 hover:text-green-600 transition-colors duration-200 p-3 rounded-lg hover:bg-green-50/50">
                 <div className="p-2 bg-gradient-to-r from-green-100 to-orange-100 rounded-lg">
-                  {item.icon}
+                {item.icon}
                 </div>
                 <span className="text-sm font-medium">{item.label}</span>
               </div>

@@ -204,11 +204,11 @@ const Footer = () => {
                   <h3 className="text-lg sm:text-xl font-semibold text-white">Stay Updated</h3>
                 </div>
                 <p className="text-gray-400 text-sm sm:text-base">Get the latest news and updates from FeedForward delivered to your inbox</p>
-              </div>
+            </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto lg:min-w-[400px]">
                 <div className="relative flex-1">
-                  <input 
-                    type="email" 
+              <input
+                type="email"
                     placeholder="Enter your email address"
                     className="w-full px-4 py-3 sm:py-4 rounded-xl bg-gray-800/80 backdrop-blur-sm border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   />
@@ -219,14 +219,14 @@ const Footer = () => {
                     </svg>
                   </div>
                 </div>
-                <Button 
+              <Button 
                   variant="gradient"
-                  size="md"
+                size="md"
                   className="bg-gradient-to-r from-green-500 to-orange-500 hover:from-green-600 hover:to-orange-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold"
-                >
+              >
                   <span className="hidden sm:inline">Subscribe Now</span>
                   <span className="sm:hidden">Subscribe</span>
-                </Button>
+              </Button>
               </div>
             </div>
           </div>
